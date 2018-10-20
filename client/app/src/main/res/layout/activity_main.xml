@@ -17,13 +17,21 @@
                   android:paddingTop="16dp"
                   tools:context="edu.upc.carlota.hacks.come_withme.MainActivity">
 
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="320dp"
+            android:id="@+id/username_up"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:paddingTop="16dp"
+            android:paddingBottom="8dp"
+            android:layout_height="wrap_content">
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:id="@+id/username"
-                android:hint="username"
+                android:hint="@string/Username"
                 android:fontFamily="sans-serif"
                 android:textColorHint="#e89b9696"
                 android:textSize="16sp"
@@ -33,12 +41,24 @@
                 android:padding="10dp"
                 android:textStyle="italic"/>
 
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="320dp"
+            android:id="@+id/password_up"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_marginBottom="15sp"
+            android:paddingTop="16dp"
+            android:paddingBottom="8dp"
+            android:layout_height="wrap_content">
+
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:id="@+id/password"
-                android:hint="********"
+                android:hint="@string/Password"
                 android:fontFamily="sans-serif"
                 android:textColorHint="#e89b9696"
                 android:textSize="16sp"
@@ -47,6 +67,8 @@
                 android:layout_margin="2sp"
                 android:padding="10dp"
                 android:textStyle="italic"/>
+
+        </android.support.design.widget.TextInputLayout>
 
         <RelativeLayout
             android:layout_width="180dp"
@@ -61,12 +83,12 @@
                 android:id="@+id/btnLogin"
                 android:layout_width="wrap_content"
                 android:layout_height="36dp"
-                android:text="LOGIN"
-                android:fontFamily="sans-serif-medium"
+                android:text="@string/Login"
                 android:paddingLeft="16dp"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
                 android:paddingRight="16dp"
+                android:textAllCaps="true"
                 android:textStyle="bold"
                 android:textSize="14sp"
                 android:visibility="visible"/>
@@ -84,9 +106,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:text="Not registred yet?"
-                android:fontFamily="sans-serif"
-                android:textSize="16dp"
+                android:text="@string/NotRegistered"
                 android:padding="5dp"
                 android:textColor="#000"/>
 
@@ -95,11 +115,9 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/btnRegister"
                 android:gravity="center_horizontal"
-                android:fontFamily="sans-serif"
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
-                android:text="Register"
-                android:textSize="16dp"
+                android:text="@string/Register"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
                 android:textColor="#3838e2"
