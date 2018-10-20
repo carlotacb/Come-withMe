@@ -31,7 +31,6 @@
     <string name="button_send">OK</string>
 
 
-
     <string name="menu_email">Email</string>
     <string name="menu_info">Info</string>
     <string name="menu_map">Map</string>
@@ -66,6 +65,9 @@
         <item>16:00-16:30</item>
         <item>16:30-17:00</item>
     </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>
