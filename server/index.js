@@ -4,8 +4,8 @@ const bodyParser = require('body-parser')
 const config = require('./config')
 const BootstrapRouter = require('./routes')
 
-BootstrapRouter(app)
 BootstrapServer(app)
+BootstrapRouter(app)
 StartServer(app)
 
 function BootstrapServer(app) {
