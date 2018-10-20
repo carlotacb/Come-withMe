@@ -19,16 +19,14 @@
         <activity
             android:name=".Register"
             android:label="@string/title_activity_register"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-        <activity android:name=".EditProfile">
-        </activity>
-
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".EditProfile"></activity>
         <activity
             android:name=".Home"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".MyProfile"></activity>
+        <activity android:name=".MyProfile" />
+        <activity android:name=".Preferences"></activity>
     </application>
 
 </manifest>

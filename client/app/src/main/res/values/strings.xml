@@ -10,7 +10,7 @@
     <string name="fieldnecesary">All fields are necessary</string>
     <string name="title_activity_home">Home</string>
 
-    <string name="title_activity_register">Register</string>
+    <string name="title_activity_register">WELCOME!</string>
     <string name="edit_name">Enter your name</string>
 
 
@@ -28,5 +28,11 @@
     <string name="edit_email">Enter your email</string>
     <string name="text_gender">Enter your gender</string>
     <string name="button_send">OK</string>
-    
+    <string name="button_signup">SIGN UP</string>
+    <string name="monday">Monday</string>
+    <string name="tuesday">Tuesday</string>
+    <string name="wednesday">Wednesday</string>
+    <string name="thrusday">Thrusday</string>
+    <string name="friday">Friday</string>
+
 </resources>

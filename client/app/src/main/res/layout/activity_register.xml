@@ -16,13 +16,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/title_activity_register"
-            tools:text="@string/title_activity_register" />
+            tools:text="@string/title_activity_register"
+            android:textSize="20sp"/>
 
         <EditText
             android:id="@+id/nameRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="2sp"
+            android:autofillHints=""
             android:fontFamily="sans-serif"
             android:hint="Enter your name"
             android:inputType="textPersonName"
@@ -35,6 +37,22 @@
 
         <EditText
             android:id="@+id/passwordRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2sp"
+            android:autofillHints=""
+            android:fontFamily="sans-serif"
+            android:hint="********"
+            android:inputType="textPassword"
+            android:padding="10dp"
+            android:textColor="#000"
+            android:textColorHint="#e89b9696"
+            android:textCursorDrawable="@null"
+            android:textSize="16sp"
+            android:textStyle="italic" />
+
+        <EditText
+            android:id="@+id/passwordConfirm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="2sp"
@@ -63,7 +81,8 @@
             android:textColorHint="#e89b9696"
             android:textCursorDrawable="@null"
             android:textSize="16sp"
-            android:textStyle="italic" />
+            android:textStyle="italic"
+            android:autofillHints="" />
 
         <Spinner
             android:id="@+id/dynamic_spinner"
@@ -76,6 +95,87 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp" />
+
+        <EditText
+            android:id="@+id/biography"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2sp"
+            android:fontFamily="sans-serif"
+            android:hint="Explain a little about yourself"
+            android:inputType="textPersonName"
+            android:padding="10dp"
+            android:textColor="#000"
+            android:textColorHint="#e89b9696"
+            android:textCursorDrawable="@null"
+            android:textSize="16sp"
+            android:maxLength="140"
+            android:textStyle="italic"
+            android:autofillHints="" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="315dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp">
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <CheckBox
+                    android:id="@+id/checkbox_monday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="@string/monday" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_tuesday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="@string/tuesday" />
+
+            </LinearLayout>
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <CheckBox
+                    android:id="@+id/checkbox_wednesday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="@string/wednesday" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_thursday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="@string/thrusday" />
+            </LinearLayout>
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <CheckBox
+                    android:id="@+id/checkbox_friday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="@string/friday" />
+            </LinearLayout>
+
+        </LinearLayout>
 
         <Button
             android:id="@+id/button"
