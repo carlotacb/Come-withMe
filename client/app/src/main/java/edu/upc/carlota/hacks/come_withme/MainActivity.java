@@ -16,12 +16,16 @@ import android.widget.TextView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.util.Objects;
+
+import edu.upc.carlota.hacks.come_withme.ServerConection.PostAsyncTask;
 
 public class MainActivity extends AppCompatActivity {
 
     private EditText etUsername, etPassword;
+    private TextInputLayout errorUsername, errorPassword;
     private Button login;
     private String username, password;
 
@@ -35,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
         etUsername = (EditText) findViewById(R.id.username);
         etPassword = (EditText) findViewById(R.id.password);
 
+        errorUsername = (TextInputLayout) findViewById(R.id.username_up);
+        errorPassword = (TextInputLayout) findViewById(R.id.password_up);
+
         login = (Button) findViewById(R.id.btnLogin);
         TextView register = (TextView) findViewById(R.id.btnRegister);
 
@@ -46,28 +53,26 @@ public class MainActivity extends AppCompatActivity {
                 String camponecesario = res.getString(R.string.fieldnecesary);
 
                 if (username.length() == 0) {
-                    errorusername.setErrorEnabled(true);
-                    errorusername.setError(camponecesario);
+                    errorUsername.setErrorEnabled(true);
+                    errorUsername.setError(camponecesario);
                     etUsername.getBackground().setColorFilter(getResources().getColor(R.color.red_500_primary), PorterDuff.Mode.SRC_ATOP);
                     if (password.length() != 0) {
-                        errorpassword.setErrorEnabled(false);
+                        errorPassword.setErrorEnabled(false);
                         etPassword.getBackground().clearColorFilter();
                     }
                 }
 
                 if (password.length() == 0) {
-                    errorpassword.setErrorEnabled(true);
-                    errorpassword.setError(camponecesario);
+                    errorPassword.setErrorEnabled(true);
+                    errorPassword.setError(camponecesario);
                     etPassword.getBackground().setColorFilter(getResources().getColor(R.color.red_500_primary), PorterDuff.Mode.SRC_ATOP);
                     if (username.length() != 0) {
-                        errorusername.setErrorEnabled(false);
+                        errorUsername.setErrorEnabled(false);
                         etUsername.getBackground().clearColorFilter();
                     }
                 } else {
-                    errorusername.setErrorEnabled(false);
-                    errorpassword.setErrorEnabled(false);
-                    login.setVisibility(View.GONE);
-                    prog.setVisibility(View.VISIBLE);
+                    errorUsername.setErrorEnabled(false);
+                    errorPassword.setErrorEnabled(false);
 
                     JSONObject values = new JSONObject();
 
@@ -78,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
 
-                    new PostSesionAsyncTask("https://agora-pes.herokuapp.com/api/login", LoginActivity.this) {
+                    new PostAsyncTask("", MainActivity.this) {
                         @Override
                         protected void onPostExecute(JSONObject resObject) {
 
@@ -88,23 +93,6 @@ public class MainActivity extends AppCompatActivity {
                             try {
                                 if (resObject.has("success")) {
                                     result = resObject.getBoolean("success");
-
-                                    //Saves token in SharedPreferences if it is not yet saved there
-                                    if (resObject.has("token")) {
-                                        String t = resObject.getString("token");
-                                        Constants.SH_PREF_NAME = t;
-
-                                        if (!Objects.equals(prefs.getString("token", ""), t)) {
-                                            edit.putString("token", t);
-                                            edit.apply();
-                                        }
-
-                                        Log.i("SavedToken", prefs.getString("token", "none saved"));
-                                    }
-                                    if (resObject.has("zone")) {
-                                        Constants.zone = resObject.getInt("zone");
-                                        Log.i("Zone:", "" + resObject.getInt("zone"));
-                                    }
                                 }
                                 if (!result && resObject.has("errorMessage"))
                                     error = res.getString(R.string.error);
@@ -114,19 +102,16 @@ public class MainActivity extends AppCompatActivity {
                             Log.i("asdBool", result.toString());
 
                             if (result) {
-                                startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                                Constants.Username = username.toLowerCase();
+                                startActivity(new Intent(MainActivity.this, EditProfile.class));
                             } else {
                                 Log.i("asd", "gfgffgfgf");
                                 etUsername.setText("");
                                 etPassword.setText("");
-                                login.setVisibility(View.VISIBLE);
-                                prog.setVisibility(View.GONE);
-                                errorpassword.setErrorEnabled(true);
-                                errorpassword.setError(error);
+                                errorPassword.setErrorEnabled(true);
+                                errorPassword.setError(error);
                                 etPassword.getBackground().setColorFilter(getResources().getColor(R.color.red_500_primary), PorterDuff.Mode.SRC_ATOP);
-                                errorusername.setErrorEnabled(true);
-                                errorusername.setError(error);
+                                errorUsername.setErrorEnabled(true);
+                                errorUsername.setError(error);
                                 etUsername.getBackground().setColorFilter(getResources().getColor(R.color.red_500_primary), PorterDuff.Mode.SRC_ATOP);
                             }
 

@@ -1,7 +1,16 @@
 <resources>
-    <string name="app_name">Come_WithMe</string>
-    <string name="title_activity_register">Register</string>
+    <string name="app_name">Come With Me</string>
 
+    <!-- STRINGS FOR LOGIN -->
+    <string name="Login">Login</string>
+    <string name="Register">Register</string>
+    <string name="NotRegistered">Not registred yet?</string>
+    <string name="Username">Username</string>
+    <string name="Password">********</string>
+    <string name="fieldnecesary">All fields are necessary</string>
+
+
+    <string name="title_activity_register">Register</string>
     <string name="edit_name">Enter your name</string>
 
 
