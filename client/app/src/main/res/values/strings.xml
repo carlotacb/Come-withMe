@@ -29,4 +29,13 @@
     <string name="text_gender">Enter your gender</string>
     <string name="button_send">OK</string>
 
+
+    <string name="menu_email">Email</string>
+    <string name="menu_info">Info</string>
+    <string name="menu_map">Map</string>
+    <string name="title_activity_navigation">Navigation</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
 </resources>
