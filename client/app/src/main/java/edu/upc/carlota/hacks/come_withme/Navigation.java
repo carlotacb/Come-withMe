@@ -38,6 +38,12 @@ public class Navigation extends AppCompatActivity {
                     toolbar.setTitle("HOMECAMBIA");
                     return true;
 
+                case R.id.navigation_dashboard:
+                    toolbar.setTitle("Dash");
+                    return true;
+                case R.id.navigation_notifications:
+                    toolbar.setTitle("Notif");
+                    return true;
             }
             return false;
         }
