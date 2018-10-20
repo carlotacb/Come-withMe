@@ -24,7 +24,7 @@ import java.util.Arrays;
 public class Register extends AppCompatActivity {
 
     private EditText etName, etPassword, etMail;
-    private Button login;
+    private Button OK;
     private String nameRegister, password, emailRegister;
     private Boolean[] weekDays;
     private int pWhere;
@@ -42,7 +42,7 @@ public class Register extends AppCompatActivity {
         etPassword = (EditText) findViewById(R.id.password);
         etMail = (EditText) findViewById(R.id.emailRegister);
 
-        login = (Button) findViewById(R.id.btnLogin);
+        OK = (Button) findViewById(R.id.buttonOK);
         TextView register = (TextView) findViewById(R.id.btnRegister);
 
         Spinner staticSpinner = (Spinner) findViewById(R.id.static_spinner);
@@ -83,7 +83,7 @@ public class Register extends AppCompatActivity {
 
 
 
-        register.setOnClickListener(new View.OnClickListener() {
+        OK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Register.this, Preferences.class));
