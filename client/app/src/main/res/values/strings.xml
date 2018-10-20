@@ -10,7 +10,7 @@
     <string name="fieldnecesary">All fields are necessary</string>
     <string name="title_activity_home">Home</string>
 
-    <string name="title_activity_register">Register</string>
+    <string name="title_activity_register">WELCOME!</string>
     <string name="edit_name">Enter your name</string>
 
 
@@ -28,6 +28,7 @@
     <string name="edit_email">Enter your email</string>
     <string name="text_gender">Enter your gender</string>
     <string name="button_send">OK</string>
+<<<<<<< HEAD
 
 
     <string name="menu_email">Email</string>
@@ -37,5 +38,33 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+=======
+    <string name="button_signup">SIGN UP</string>
+    <string name="monday">Monday</string>
+    <string name="tuesday">Tuesday</string>
+    <string name="wednesday">Wednesday</string>
+    <string name="thrusday">Thrusday</string>
+    <string name="friday">Friday</string>
+    <string name="tupper">Tupper</string>
+    <string name="bar">Bar</string>
+    <string name="indif">Indifferent</string>
+    <string name="outdoors">Outdoors</string>
+    <string name="indoors">Indoors</string>
+    <string name="indifPlace">Indifferent</string>
+
+    <string-array name="hours">
+        <item>12:00-12:30</item>
+        <item>12:30-13:00</item>
+        <item>13:00-13:30</item>
+        <item>13:00-13:30</item>
+        <item>13:30-14:00</item>
+        <item>14:00-14:30</item>
+        <item>14:30-15:00</item>
+        <item>15:00-15:30</item>
+        <item>15:30-16:00</item>
+        <item>16:00-16:30</item>
+        <item>16:30-17:00</item>
+    </string-array>
+>>>>>>> 2e4ab40f0cdfda6b7f85bd25a902953b3406c0e4
 
 </resources>
