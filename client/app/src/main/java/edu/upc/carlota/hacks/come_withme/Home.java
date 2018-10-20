@@ -18,9 +18,6 @@ public class Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
         home = (Button) findViewById(R.id.btnHome);
         myProfile = (Button) findViewById(R.id.btnMyProfile);
         settings = (Button) findViewById(R.id.btnSettings);
@@ -37,7 +34,7 @@ public class Home extends AppCompatActivity {
         myProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //startActivity(new Intent(MainActivity.this, Profile.class));
+                startActivity(new Intent(Home.this, MyProfile.class));
             }
         });
 

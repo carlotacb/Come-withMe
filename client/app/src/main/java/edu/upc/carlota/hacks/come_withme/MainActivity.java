@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         login = (Button) findViewById(R.id.btnLogin);
         TextView register = (TextView) findViewById(R.id.btnRegister);
 
-        login.setOnClickListener(new View.OnClickListener() {
+        /*login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 username = etUsername.getText().toString();
@@ -135,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
 
 
             }
-        });
+        });*/
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
