@@ -1,4 +1,4 @@
-const userModule = require('../node_modules/users')
+const userModule = require('../modules/users')
 
 
 module.exports = app => {
