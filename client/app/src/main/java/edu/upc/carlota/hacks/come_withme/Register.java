@@ -23,7 +23,7 @@ import java.util.Arrays;
 
 public class Register extends AppCompatActivity {
 
-    private EditText etName, etPassword, etMail;
+    private EditText etName, etPassword, etMail, etPassConf, etBio;
     private Button OK;
     private String nameRegister, password, emailRegister;
     private Boolean[] weekDays;
@@ -39,13 +39,16 @@ public class Register extends AppCompatActivity {
         Arrays.fill(weekDays, false);
 
         etName = (EditText) findViewById(R.id.nameRegister);
-        etPassword = (EditText) findViewById(R.id.password);
+        etPassword = (EditText) findViewById(R.id.passwordRegister);
+        etPassConf = (EditText) findViewById(R.id.passwordConfirm);
         etMail = (EditText) findViewById(R.id.emailRegister);
+        etBio = (EditText) findViewById(R.id.biography);
 
         OK = (Button) findViewById(R.id.buttonOK);
         TextView register = (TextView) findViewById(R.id.btnRegister);
 
         Spinner staticSpinner = (Spinner) findViewById(R.id.static_spinner);
+        Spinner staticSpinnerHours = (Spinner) findViewById(R.id.static_spinner_hours);
 
         // Create an ArrayAdapter using the string array and a default spinner
         ArrayAdapter<CharSequence> staticAdapter = ArrayAdapter
@@ -58,6 +61,7 @@ public class Register extends AppCompatActivity {
 
         // Apply the adapter to the spinner
         staticSpinner.setAdapter(staticAdapter);
+        staticSpinnerHours.setAdapter(staticAdapter);
 
         Spinner dynamicSpinner = (Spinner) findViewById(R.id.dynamic_spinner);
 
