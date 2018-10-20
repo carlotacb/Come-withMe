@@ -45,7 +45,6 @@ public class Register extends AppCompatActivity {
         etBio = (EditText) findViewById(R.id.biography);
 
         OK = (Button) findViewById(R.id.buttonOK);
-        TextView register = (TextView) findViewById(R.id.btnRegister);
 
         Spinner staticSpinner = (Spinner) findViewById(R.id.static_spinner);
         Spinner staticSpinnerHours = (Spinner) findViewById(R.id.static_spinner_hours);
