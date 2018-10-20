@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
     private Button login;
     private String username, password;
 
-    private Resources res = this.getResources();
     //private Resources res = this.getResources();
 
     @Override
