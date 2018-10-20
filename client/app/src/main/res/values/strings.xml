@@ -25,6 +25,7 @@
         <item>Male</item>
         <item>Other</item>
     </string-array>
+
     <string name="edit_email">Enter your email</string>
     <string name="text_gender">Enter your gender</string>
     <string name="button_send">OK</string>
@@ -41,7 +42,7 @@
     <string name="indoors">Indoors</string>
     <string name="indifPlace">Indifferent</string>
 
-    <string-array name="hours">
+    <string-array name="hours_array">
         <item>12:00-12:30</item>
         <item>12:30-13:00</item>
         <item>13:00-13:30</item>

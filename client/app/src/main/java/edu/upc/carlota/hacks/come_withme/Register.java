@@ -55,13 +55,22 @@ public class Register extends AppCompatActivity {
                 .createFromResource(this, R.array.schools_array,
                         android.R.layout.simple_spinner_item);
 
+        ArrayAdapter<CharSequence> staticAdapterHours = ArrayAdapter
+                .createFromResource(this, R.array.hours_array,
+                        android.R.layout.simple_spinner_item);
+
+
         // Specify the layout to use when the list of choices appears
         staticAdapter
                 .setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
+        staticAdapterHours
+                .setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+
         // Apply the adapter to the spinner
         staticSpinner.setAdapter(staticAdapter);
-        staticSpinnerHours.setAdapter(staticAdapter);
+        staticSpinnerHours.setAdapter(staticAdapterHours);
 
         Spinner dynamicSpinner = (Spinner) findViewById(R.id.dynamic_spinner);
 
@@ -90,7 +99,7 @@ public class Register extends AppCompatActivity {
         OK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Register.this, Preferences.class));
+                startActivity(new Intent(Register.this, Home.class));
             }
         });
     }
