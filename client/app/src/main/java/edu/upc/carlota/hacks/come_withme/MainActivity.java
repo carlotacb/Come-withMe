@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         login = (Button) findViewById(R.id.btnLogin);
         TextView register = (TextView) findViewById(R.id.btnRegister);
 
-        login.setOnClickListener(new View.OnClickListener() {
+        /*login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 username = etUsername.getText().toString();
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
                 if (username.length() == 0) {
                     errorUsername.setErrorEnabled(true);
                     errorUsername.setError(camponecesario);
-                    etUsername.getBackground().setColorFilter(getResources().getColor(R.color.red_500_primary), PorterDuff.Mode.SRC_ATOP);
+                   // etUsername.getBackground().setColorFilter(getResources().getColor(R.color.red_500_primary), PorterDuff.Mode.SRC_ATOP);
                     if (password.length() != 0) {
                         errorPassword.setErrorEnabled(false);
                         etPassword.getBackground().clearColorFilter();
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                 if (password.length() == 0) {
                     errorPassword.setErrorEnabled(true);
                     errorPassword.setError(camponecesario);
-                    etPassword.getBackground().setColorFilter(getResources().getColor(R.color.red_500_primary), PorterDuff.Mode.SRC_ATOP);
+                    //etPassword.getBackground().setColorFilter(getResources().getColor(R.color.red_500_primary), PorterDuff.Mode.SRC_ATOP);
                     if (username.length() != 0) {
                         errorUsername.setErrorEnabled(false);
                         etUsername.getBackground().clearColorFilter();
@@ -83,19 +83,19 @@ public class MainActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
 
-                    new PostAsyncTask("", MainActivity.this) {
+                    /*new PostAsyncTask("", MainActivity.this) {
                         @Override
                         protected void onPostExecute(JSONObject resObject) {
 
                             Boolean result = false;
-                            String error = res.getString(R.string.error);
+                            String error = "Error";//res.getString(R.string.error);
 
                             try {
                                 if (resObject.has("success")) {
                                     result = resObject.getBoolean("success");
                                 }
                                 if (!result && resObject.has("errorMessage"))
-                                    error = res.getString(R.string.error);
+                                    error = "ERror";
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -109,10 +109,10 @@ public class MainActivity extends AppCompatActivity {
                                 etPassword.setText("");
                                 errorPassword.setErrorEnabled(true);
                                 errorPassword.setError(error);
-                                etPassword.getBackground().setColorFilter(getResources().getColor(R.color.red_500_primary), PorterDuff.Mode.SRC_ATOP);
+                                //etPassword.getBackground().setColorFilter(getResources().getColor(R.color.red_500_primary), PorterDuff.Mode.SRC_ATOP);
                                 errorUsername.setErrorEnabled(true);
                                 errorUsername.setError(error);
-                                etUsername.getBackground().setColorFilter(getResources().getColor(R.color.red_500_primary), PorterDuff.Mode.SRC_ATOP);
+                                //etUsername.getBackground().setColorFilter(getResources().getColor(R.color.red_500_primary), PorterDuff.Mode.SRC_ATOP);
                             }
 
                         }
@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
 
 
             }
-        });
+        });*/
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
