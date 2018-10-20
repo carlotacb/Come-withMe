@@ -15,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -26,6 +27,8 @@ public class Register extends AppCompatActivity {
     private Button login;
     private String nameRegister, password, emailRegister;
     private Boolean[] weekDays;
+    private int pWhere;
+    private int pWhat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,6 +129,40 @@ public class Register extends AppCompatActivity {
                 // No Fridays
                 break;
             // TODO: Day of the week
+        }
+    }
+
+    public void onRadioButtonClicked(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+
+        // Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.radio_prefWhat:
+                if (checked)
+                    pWhat = 1;
+                    break;
+            case R.id.radio_bar:
+                if (checked)
+                    pWhat = 2;
+                    break;
+            case R.id.radio_indif:
+                if (checked)
+                    pWhat = 3;
+                    break;
+            case R.id.radio_outdoors:
+                if (checked)
+                    pWhere = 1;
+                    break;
+            case R.id.radio_indoors:
+                if (checked)
+                    pWhere = 2;
+                    break;
+            case R.id.radio_indifPlace:
+                if (checked)
+                    pWhere = 3;
+                    break;
+
         }
     }
 

@@ -116,7 +116,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="315dp"
+            android:layout_height="70dp"
             android:layout_gravity="center"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="15dp">
@@ -177,6 +177,66 @@
 
         </LinearLayout>
 
+        <Spinner
+            android:id="@+id/static_spinner_hours"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp" />
+
+                <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp">
+                    <RadioButton android:id="@+id/radio_prefWhat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tupper"
+                        android:textSize="16sp"
+                        android:onClick="onRadioButtonClicked"/>
+                    <RadioButton android:id="@+id/radio_bar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/bar"
+                        android:textSize="16sp"
+                        android:onClick="onRadioButtonClicked"/>
+                    <RadioButton android:id="@+id/radio_indif"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/indif"
+                        android:textSize="16sp"
+                        android:onClick="onRadioButtonClicked"/>
+                </RadioGroup>
+
+                <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp">
+                    <RadioButton android:id="@+id/radio_outdoors"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/outdoors"
+                        android:textSize="16sp"
+                        android:onClick="onRadioButtonClicked"/>
+                    <RadioButton android:id="@+id/radio_indoors"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/indoors"
+                        android:textSize="16sp"
+                        android:onClick="onRadioButtonClicked"/>
+                    <RadioButton android:id="@+id/radio_indifPlace"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/indifPlace"
+                        android:textSize="16sp"
+                        android:onClick="onRadioButtonClicked"/>
+                </RadioGroup>
+
         <Button
             android:id="@+id/button"
             android:layout_width="match_parent"
@@ -185,6 +245,5 @@
             tools:text="@string/button_send" />
 
     </LinearLayout>
-
 
 </ScrollView>
