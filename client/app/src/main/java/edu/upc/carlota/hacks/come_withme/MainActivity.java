@@ -1,9 +1,12 @@
 package edu.upc.carlota.hacks.come_withme;
 
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.PorterDuff;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,10 +14,18 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.Objects;
+
 public class MainActivity extends AppCompatActivity {
 
     private EditText etUsername, etPassword;
     private Button login;
+    private String username, password;
+
+    private Resources res = this.getResources();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +41,98 @@ public class MainActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                username = etUsername.getText().toString();
+                password = etPassword.getText().toString();
+                String camponecesario = res.getString(R.string.fieldnecesary);
+
+                if (username.length() == 0) {
+                    errorusername.setErrorEnabled(true);
+                    errorusername.setError(camponecesario);
+                    etUsername.getBackground().setColorFilter(getResources().getColor(R.color.red_500_primary), PorterDuff.Mode.SRC_ATOP);
+                    if (password.length() != 0) {
+                        errorpassword.setErrorEnabled(false);
+                        etPassword.getBackground().clearColorFilter();
+                    }
+                }
+
+                if (password.length() == 0) {
+                    errorpassword.setErrorEnabled(true);
+                    errorpassword.setError(camponecesario);
+                    etPassword.getBackground().setColorFilter(getResources().getColor(R.color.red_500_primary), PorterDuff.Mode.SRC_ATOP);
+                    if (username.length() != 0) {
+                        errorusername.setErrorEnabled(false);
+                        etUsername.getBackground().clearColorFilter();
+                    }
+                } else {
+                    errorusername.setErrorEnabled(false);
+                    errorpassword.setErrorEnabled(false);
+                    login.setVisibility(View.GONE);
+                    prog.setVisibility(View.VISIBLE);
+
+                    JSONObject values = new JSONObject();
+
+                    try {
+                        values.put("username", username);
+                        values.put("password", password);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                    new PostSesionAsyncTask("https://agora-pes.herokuapp.com/api/login", LoginActivity.this) {
+                        @Override
+                        protected void onPostExecute(JSONObject resObject) {
+
+                            Boolean result = false;
+                            String error = res.getString(R.string.error);
+
+                            try {
+                                if (resObject.has("success")) {
+                                    result = resObject.getBoolean("success");
+
+                                    //Saves token in SharedPreferences if it is not yet saved there
+                                    if (resObject.has("token")) {
+                                        String t = resObject.getString("token");
+                                        Constants.SH_PREF_NAME = t;
+
+                                        if (!Objects.equals(prefs.getString("token", ""), t)) {
+                                            edit.putString("token", t);
+                                            edit.apply();
+                                        }
+
+                                        Log.i("SavedToken", prefs.getString("token", "none saved"));
+                                    }
+                                    if (resObject.has("zone")) {
+                                        Constants.zone = resObject.getInt("zone");
+                                        Log.i("Zone:", "" + resObject.getInt("zone"));
+                                    }
+                                }
+                                if (!result && resObject.has("errorMessage"))
+                                    error = res.getString(R.string.error);
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                            Log.i("asdBool", result.toString());
+
+                            if (result) {
+                                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                                Constants.Username = username.toLowerCase();
+                            } else {
+                                Log.i("asd", "gfgffgfgf");
+                                etUsername.setText("");
+                                etPassword.setText("");
+                                login.setVisibility(View.VISIBLE);
+                                prog.setVisibility(View.GONE);
+                                errorpassword.setErrorEnabled(true);
+                                errorpassword.setError(error);
+                                etPassword.getBackground().setColorFilter(getResources().getColor(R.color.red_500_primary), PorterDuff.Mode.SRC_ATOP);
+                                errorusername.setErrorEnabled(true);
+                                errorusername.setError(error);
+                                etUsername.getBackground().setColorFilter(getResources().getColor(R.color.red_500_primary), PorterDuff.Mode.SRC_ATOP);
+                            }
+
+                        }
+                    }.execute(values);
+
 
             }
         });
