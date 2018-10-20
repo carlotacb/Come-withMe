@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Come_WithMe</string>
+    <string name="title_activity_register">Register</string>
 </resources>
