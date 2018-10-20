@@ -3,16 +3,13 @@ const app = express()
 const bodyParser = require('body-parser')
 const config = require('./config')
 const BootstrapRouter = require('./routes')
-
+ BootstrapRouter(app)
 BootstrapServer(app)
-BootstrapRouter(app)
 StartServer(app)
-
-function BootstrapServer(app) {
+ function BootstrapServer(app) {
 	app.use(bodyParser.json())
 }
-
-function StartServer(app) {
+ function StartServer(app) {
 	app.listen(config.port, function() {
 		console.log(`Agora app listening on port ${config.port}!`)
 	})
