@@ -193,4 +193,6 @@
             android:visibility="visible"/>
 
     </LinearLayout>
+
+
 </android.support.design.widget.CoordinatorLayout>
