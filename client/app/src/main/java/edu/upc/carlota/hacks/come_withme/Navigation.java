@@ -17,14 +17,12 @@ public class Navigation extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
-        toolbar = getSupportActionBar();
+        setContentView(R.layout.activity_navigation);
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        toolbar.setTitle("HOME");
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -35,14 +33,13 @@ public class Navigation extends AppCompatActivity {
             Fragment fragment;
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    toolbar.setTitle("HOMECAMBIA");
+                    startActivity(new Intent(Navigation.this, HomeFragment.class));
                     return true;
 
                 case R.id.navigation_dashboard:
-                    toolbar.setTitle("Dash");
                     return true;
                 case R.id.navigation_notifications:
-                    toolbar.setTitle("Notif");
+
                     return true;
             }
             return false;
