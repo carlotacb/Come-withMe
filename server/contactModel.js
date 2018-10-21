@@ -1,18 +1,19 @@
 var mongoose = require('mongoose');
 // Setup schema
 var contactSchema = mongoose.Schema({
-    name: {
+    
+     name: {
+        type: String,
+        required: true
+    },
+    email: {
         type: String,
         required: true
     },
     completeName: String,
     password: String,
-    email: {
-        type: String,
-        required: true
-    },
-    gender: String,
     school: Number,
+    gender: String,
     bio: String,
     pWhat: Number,
     pWhere: Number,
