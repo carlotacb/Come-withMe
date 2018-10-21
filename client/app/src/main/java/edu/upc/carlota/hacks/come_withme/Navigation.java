@@ -17,14 +17,14 @@ public class Navigation extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_navigation);
 
-        toolbar = getSupportActionBar();
+        //toolbar = getSupportActionBar();
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        toolbar.setTitle("HOME");
+        //toolbar.setTitle("HOME");
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -35,14 +35,14 @@ public class Navigation extends AppCompatActivity {
             Fragment fragment;
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    toolbar.setTitle("HOMECAMBIA");
+                    //toolbar.setTitle("HOMECAMBIA");
                     return true;
 
                 case R.id.navigation_dashboard:
-                    toolbar.setTitle("Dash");
+                    //toolbar.setTitle("Dash");
                     return true;
                 case R.id.navigation_notifications:
-                    toolbar.setTitle("Notif");
+                    //toolbar.setTitle("Notif");
                     return true;
             }
             return false;

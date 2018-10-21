@@ -99,6 +99,7 @@ public class Register extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Register.this, Navigation.class));
+                Log.i("asd123", "DDD");
             }
         });
     }
