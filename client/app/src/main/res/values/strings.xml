@@ -10,7 +10,7 @@
     <string name="fieldnecesary">All fields are necessary</string>
     <string name="title_activity_home">Home</string>
 
-    <string name="title_activity_register">WELCOME!</string>
+    <string name="title_activity_register">WELCOME</string>
     <string name="edit_name">Enter your name</string>
 
 
@@ -25,10 +25,10 @@
         <item>Male</item>
         <item>Other</item>
     </string-array>
+
     <string name="edit_email">Enter your email</string>
     <string name="text_gender">Enter your gender</string>
     <string name="button_send">OK</string>
-<<<<<<< HEAD
 
 
     <string name="menu_email">Email</string>
@@ -38,7 +38,7 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-=======
+
     <string name="button_signup">SIGN UP</string>
     <string name="monday">Monday</string>
     <string name="tuesday">Tuesday</string>
@@ -52,7 +52,7 @@
     <string name="indoors">Indoors</string>
     <string name="indifPlace">Indifferent</string>
 
-    <string-array name="hours">
+    <string-array name="hours_array">
         <item>12:00-12:30</item>
         <item>12:30-13:00</item>
         <item>13:00-13:30</item>
@@ -65,6 +65,9 @@
         <item>16:00-16:30</item>
         <item>16:30-17:00</item>
     </string-array>
->>>>>>> 2e4ab40f0cdfda6b7f85bd25a902953b3406c0e4
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 
 </resources>

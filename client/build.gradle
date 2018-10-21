@@ -8,12 +8,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.2.1'
-<<<<<<< HEAD
-=======
-        dependencies {
-            implementation 'com.android.support:design:27.0.2'
-        }
->>>>>>> 2e4ab40f0cdfda6b7f85bd25a902953b3406c0e4
+
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
