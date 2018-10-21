@@ -2,28 +2,22 @@ package edu.upc.carlota.hacks.come_withme;
 
 import android.content.Intent;
 import android.content.res.Resources;
-import android.graphics.PorterDuff;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.android.volley.Response;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
-import java.util.Objects;
-
-import edu.upc.carlota.hacks.come_withme.ServerConection.PostAsyncTask;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private Button login;
     private String username, password;
 
-    //private Resources res = this.getResources();
+//    private Resources res = this.getResources();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,17 +42,19 @@ public class MainActivity extends AppCompatActivity {
         login = (Button) findViewById(R.id.btnLogin);
         TextView register = (TextView) findViewById(R.id.btnRegister);
 
-        /*login.setOnClickListener(new View.OnClickListener() {
+        login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                login.setEnabled(false);
+                login.setText("Loading...");
                 username = etUsername.getText().toString();
                 password = etPassword.getText().toString();
-                String camponecesario = res.getString(R.string.fieldnecesary);
+                String camponecesario = "Necessary field";
 
                 if (username.length() == 0) {
                     errorUsername.setErrorEnabled(true);
                     errorUsername.setError(camponecesario);
-                   // etUsername.getBackground().setColorFilter(getResources().getColor(R.color.red_500_primary), PorterDuff.Mode.SRC_ATOP);
+                    // etUsername.getBackground().setColorFilter(getResources().getColor(R.color.red_500_primary), PorterDuff.Mode.SRC_ATOP);
                     if (password.length() != 0) {
                         errorPassword.setErrorEnabled(false);
                         etPassword.getBackground().clearColorFilter();
@@ -77,53 +73,12 @@ public class MainActivity extends AppCompatActivity {
                     errorUsername.setErrorEnabled(false);
                     errorPassword.setErrorEnabled(false);
 
-                    JSONObject values = new JSONObject();
-
-                    try {
-                        values.put("username", username);
-                        values.put("password", password);
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-
-                    /*new PostAsyncTask("", MainActivity.this) {
-                        @Override
-                        protected void onPostExecute(JSONObject resObject) {
-
-                            Boolean result = false;
-                            String error = "Error";//res.getString(R.string.error);
-
-                            try {
-                                if (resObject.has("success")) {
-                                    result = resObject.getBoolean("success");
-                                }
-                                if (!result && resObject.has("errorMessage"))
-                                    error = "ERror";
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                            Log.i("asdBool", result.toString());
-
-                            if (result) {
-                                startActivity(new Intent(MainActivity.this, EditProfile.class));
-                            } else {
-                                Log.i("asd", "gfgffgfgf");
-                                etUsername.setText("");
-                                etPassword.setText("");
-                                errorPassword.setErrorEnabled(true);
-                                errorPassword.setError(error);
-                                //etPassword.getBackground().setColorFilter(getResources().getColor(R.color.red_500_primary), PorterDuff.Mode.SRC_ATOP);
-                                errorUsername.setErrorEnabled(true);
-                                errorUsername.setError(error);
-                                //etUsername.getBackground().setColorFilter(getResources().getColor(R.color.red_500_primary), PorterDuff.Mode.SRC_ATOP);
-                            }
-
-                        }
-                    }.execute(values);
-
-
+                    //postCredentials(username, password);
+                    startActivity(new Intent(MainActivity.this, Navigation.class));
+                }
             }
-        });*/
+        });
+
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -131,8 +86,38 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, Register.class));
             }
         });
-
     }
 
+    //función para llamar a la API
+    /*private void postCredentials(String user, String password) {
 
+        APICommunicator apiCommunicator = new APICommunicator();
+        Response.Listener responseListener = (Response.Listener<CustomRequest.CustomResponse>) response -> {
+            JSONObject jsonObject;
+            String username2 = null;
+            String password2 = null;
+            try {
+                jsonObject = new JSONObject();
+                username2 = jsonObject.getString("username");
+                password2 = jsonObject.getString("password");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            startActivity(new Intent(MainActivity.this, Navigation.class));
+            finish();
+        };
+
+        Response.ErrorListener errorListener = error -> {
+            etPassword.getText().clear();
+            login.setEnabled(true);
+            login.setText("LOGIN");
+        };
+
+        Map<String, Object> params = new HashMap<>();
+        params.put("username", user);
+        params.put("password", password);
+
+        apiCommunicator.postRequest(getApplicationContext(), "/login" , responseListener, errorListener, params);
+    }*/
 }

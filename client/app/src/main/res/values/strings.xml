@@ -6,11 +6,11 @@
     <string name="Register">Register</string>
     <string name="NotRegistered">Not registred yet?</string>
     <string name="Username">Username</string>
-    <string name="Password">********</string>
+    <string name="Password">Password</string>
     <string name="fieldnecesary">All fields are necessary</string>
     <string name="title_activity_home">Home</string>
 
-    <string name="title_activity_register">WELCOME</string>
+    <string name="title_activity_register">Welcome to Come withMe</string>
     <string name="edit_name">Enter your name</string>
 
 

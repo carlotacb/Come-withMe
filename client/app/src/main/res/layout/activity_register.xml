@@ -16,167 +16,97 @@
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/title_activity_register"
-            tools:text="@string/title_activity_register"
-            android:textSize="20sp"/>
+            android:text="Welcome to Come withMe!"
+            android:textAlignment="center"
+            android:paddingTop="15dp"
+            android:textColor="#000000"
+            android:textSize="28sp"/>
 
-        <EditText
-            android:id="@+id/nameRegister"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="2sp"
-            android:autofillHints=""
-            android:fontFamily="sans-serif"
-            android:hint="Enter your name"
-            android:inputType="textPersonName"
-            android:padding="10dp"
-            android:textColor="#000"
-            android:textColorHint="#e89b9696"
-            android:textCursorDrawable="@null"
-            android:textSize="16sp"
-            android:textStyle="italic" />
+            android:paddingTop="20dp"
+            android:paddingRight="20dp"
+            android:paddingLeft="20dp">
 
-        <EditText
-            android:id="@+id/passwordRegister"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="2sp"
-            android:autofillHints=""
-            android:fontFamily="sans-serif"
-            android:hint="********"
-            android:inputType="textPassword"
-            android:padding="10dp"
-            android:textColor="#000"
-            android:textColorHint="#e89b9696"
-            android:textCursorDrawable="@null"
-            android:textSize="16sp"
-            android:textStyle="italic" />
+            <EditText
+                android:id="@+id/nameRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2sp"
+                android:autofillHints=""
+                android:fontFamily="sans-serif"
+                android:hint="Enter your username"
+                android:inputType="textPersonName"
+                android:padding="10dp"
+                android:textColor="#000"
+                android:textColorHint="#e89b9696"
+                android:textCursorDrawable="@null"
+                android:textSize="16sp"
+                android:textStyle="italic" />
 
-        <EditText
-            android:id="@+id/passwordConfirm"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="2sp"
-            android:autofillHints=""
-            android:fontFamily="sans-serif"
-            android:hint="********"
-            android:inputType="textPassword"
-            android:padding="10dp"
-            android:textColor="#000"
-            android:textColorHint="#e89b9696"
-            android:textCursorDrawable="@null"
-            android:textSize="16sp"
-            android:textStyle="italic" />
+            <EditText
+                android:id="@+id/passwordRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2sp"
+                android:layout_below="@id/nameRegister"
+                android:fontFamily="sans-serif"
+                android:hint="Enter your password"
+                android:inputType="textPassword"
+                android:padding="10dp"
+                android:textColor="#000"
+                android:textColorHint="#e89b9696"
+                android:textCursorDrawable="@null"
+                android:textSize="16sp"
+                android:textStyle="italic"/>
 
-        <EditText
-            android:id="@+id/emailRegister"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="2sp"
-            android:ems="10"
-            android:fontFamily="sans-serif"
-            android:hint="Enter your email"
-            android:inputType="textEmailAddress"
-            android:padding="10dp"
-            android:textColor="#000"
-            android:textColorHint="#e89b9696"
-            android:textCursorDrawable="@null"
-            android:textSize="16sp"
-            android:textStyle="italic"
-            android:autofillHints="" />
+            <EditText
+                android:id="@+id/emailRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2sp"
+                android:layout_below="@id/passwordRegister"
+                android:ems="10"
+                android:fontFamily="sans-serif"
+                android:hint="Enter your email"
+                android:inputType="textEmailAddress"
+                android:padding="10dp"
+                android:textColor="#000"
+                android:textColorHint="#e89b9696"
+                android:textCursorDrawable="@null"
+                android:textSize="16sp"
+                android:textStyle="italic" />
+
+            <EditText
+                android:id="@+id/bio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2sp"
+                android:layout_below="@id/emailRegister"
+                android:fontFamily="sans-serif"
+                android:hint="Tell us something about you"
+                android:padding="10dp"
+                android:textColor="#000"
+                android:textColorHint="#e89b9696"
+                android:textCursorDrawable="@null"
+                android:textSize="16sp"
+                android:maxLength="140"
+                android:textStyle="italic"/>
+
+        </RelativeLayout>
 
         <Spinner
             android:id="@+id/dynamic_spinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <Spinner
-            android:id="@+id/static_spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp" />
 
-        <EditText
-            android:id="@+id/biography"
+        <Spinner
+            android:id="@+id/static_spinner"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="2sp"
-            android:fontFamily="sans-serif"
-            android:hint="Explain a little about yourself"
-            android:inputType="textPersonName"
-            android:padding="10dp"
-            android:textColor="#000"
-            android:textColorHint="#e89b9696"
-            android:textCursorDrawable="@null"
-            android:textSize="16sp"
-            android:maxLength="140"
-            android:textStyle="italic"
-            android:autofillHints="" />
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="15dp">
-
-            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <CheckBox
-                    android:id="@+id/checkbox_monday"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="onCheckboxClicked"
-                    android:text="@string/monday" />
-
-                <CheckBox
-                    android:id="@+id/checkbox_tuesday"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="onCheckboxClicked"
-                    android:text="@string/tuesday" />
-
-            </LinearLayout>
-
-            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <CheckBox
-                    android:id="@+id/checkbox_wednesday"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="onCheckboxClicked"
-                    android:text="@string/wednesday" />
-
-                <CheckBox
-                    android:id="@+id/checkbox_thursday"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="onCheckboxClicked"
-                    android:text="@string/thrusday" />
-            </LinearLayout>
-
-            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <CheckBox
-                    android:id="@+id/checkbox_friday"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="onCheckboxClicked"
-                    android:text="@string/friday" />
-            </LinearLayout>
-
-        </LinearLayout>
+            android:layout_height="wrap_content" />
 
         <Spinner
             android:id="@+id/static_spinner_hours"
@@ -185,65 +115,100 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp" />
 
-                <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+        <RadioGroup
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp">
 
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp">
-                    <RadioButton android:id="@+id/radio_prefWhat"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/tupper"
-                        android:textSize="16sp"
-                        android:onClick="onRadioButtonClicked"/>
-                    <RadioButton android:id="@+id/radio_bar"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/bar"
-                        android:textSize="16sp"
-                        android:onClick="onRadioButtonClicked"/>
-                    <RadioButton android:id="@+id/radio_indif"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/indif"
-                        android:textSize="16sp"
-                        android:onClick="onRadioButtonClicked"/>
-                </RadioGroup>
+            <RadioButton
+                android:id="@+id/radio_prefWhat"
+                android:padding="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tupper"
+                android:textSize="16sp"
+                android:onClick="onRadioButtonClicked"/>
 
-                <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp">
-                    <RadioButton android:id="@+id/radio_outdoors"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/outdoors"
-                        android:textSize="16sp"
-                        android:onClick="onRadioButtonClicked"/>
-                    <RadioButton android:id="@+id/radio_indoors"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/indoors"
-                        android:textSize="16sp"
-                        android:onClick="onRadioButtonClicked"/>
-                    <RadioButton android:id="@+id/radio_indifPlace"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/indifPlace"
-                        android:textSize="16sp"
-                        android:onClick="onRadioButtonClicked"/>
-                </RadioGroup>
+            <RadioButton
+                android:id="@+id/radio_bar"
+                android:padding="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bar"
+                android:textSize="16sp"
+                android:onClick="onRadioButtonClicked"/>
+
+            <RadioButton
+                android:id="@+id/radio_indif"
+                android:padding="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/indif"
+                android:textSize="16sp"
+                android:onClick="onRadioButtonClicked"/>
+
+        </RadioGroup>
+
+        <RadioGroup
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp">
+
+            <RadioButton
+                android:id="@+id/radio_outdoors"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/outdoors"
+                android:padding="4dp"
+                android:textSize="16sp"
+                android:onClick="onRadioButtonClicked"/>
+
+            <RadioButton
+                android:id="@+id/radio_indoors"
+                android:padding="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/indoors"
+                android:textSize="16sp"
+                android:onClick="onRadioButtonClicked"/>
+
+            <RadioButton
+                android:id="@+id/radio_indifPlace"
+                android:padding="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/indifPlace"
+                android:textSize="16sp"
+                android:onClick="onRadioButtonClicked"/>
+        </RadioGroup>
 
         <Button
             android:id="@+id/buttonOK"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="OK"
-            tools:text="@string/button_send" />
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="Register"
+            android:background="@drawable/botonlogin"
+            android:fontFamily="sans-serif-medium"
+            android:paddingLeft="16dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:paddingRight="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="30dp"
+            android:layout_gravity="center"
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:visibility="visible"/>
+
     </LinearLayout>
 
 </ScrollView>

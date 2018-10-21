@@ -19,35 +19,39 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.android.volley.Response;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Register extends AppCompatActivity {
 
-    private EditText etName, etPassword, etMail, etPassConf, etBio;
-    private Button OK;
-    private String nameRegister, password, emailRegister;
-    private Boolean[] weekDays;
-    private int pWhere;
-    private int pWhat;
+    private Button Register;
+    private int pWhere, pWhat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        this.weekDays = new Boolean [5];
-        Arrays.fill(weekDays, false);
+        EditText etUserame = (EditText) findViewById(R.id.nameRegister);
+        String usernameR = etUserame.getText().toString();
+        EditText etPassword = (EditText) findViewById(R.id.passwordRegister);
+        String passwordR = etPassword.getText().toString();
+        EditText etMail = (EditText) findViewById(R.id.emailRegister);
+        String emailR = etMail.getText().toString();
+        EditText etBio = (EditText) findViewById(R.id.bio);
+        String bio = etBio.getText().toString();
 
-        etName = (EditText) findViewById(R.id.nameRegister);
-        etPassword = (EditText) findViewById(R.id.passwordRegister);
-        etPassConf = (EditText) findViewById(R.id.passwordConfirm);
-        etMail = (EditText) findViewById(R.id.emailRegister);
-        etBio = (EditText) findViewById(R.id.biography);
-
-        OK = (Button) findViewById(R.id.buttonOK);
+        Register = (Button) findViewById(R.id.buttonOK);
 
         Spinner staticSpinner = (Spinner) findViewById(R.id.static_spinner);
         Spinner staticSpinnerHours = (Spinner) findViewById(R.id.static_spinner_hours);
+        Spinner dynamicSpinner = (Spinner) findViewById(R.id.dynamic_spinner);
 
         // Create an ArrayAdapter using the string array and a default spinner
         ArrayAdapter<CharSequence> staticAdapter = ArrayAdapter
@@ -58,6 +62,10 @@ public class Register extends AppCompatActivity {
                 .createFromResource(this, R.array.hours_array,
                         android.R.layout.simple_spinner_item);
 
+        ArrayAdapter<CharSequence> staticAdapterGenre = ArrayAdapter
+                .createFromResource(this, R.array.gender_array,
+                        android.R.layout.simple_spinner_item);
+
 
         // Specify the layout to use when the list of choices appears
         staticAdapter
@@ -66,83 +74,28 @@ public class Register extends AppCompatActivity {
         staticAdapterHours
                 .setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
+        staticAdapterGenre
+                .setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
 
         // Apply the adapter to the spinner
         staticSpinner.setAdapter(staticAdapter);
         staticSpinnerHours.setAdapter(staticAdapterHours);
+        dynamicSpinner.setAdapter(staticAdapterGenre);
 
-        Spinner dynamicSpinner = (Spinner) findViewById(R.id.dynamic_spinner);
+        String school = staticSpinner.getSelectedItem().toString();
+        Integer time = staticSpinnerHours.getSelectedItemPosition();
+        String gendre = dynamicSpinner.getSelectedItem().toString();
 
-        String[] items = new String[] { "Female", "Male", "Other" };
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, items);
-
-        dynamicSpinner.setAdapter(adapter);
-
-        dynamicSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view,
-                                       int position, long id) {
-                Log.v("item", (String) parent.getItemAtPosition(position));
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                // TODO Auto-generated method stub
-            }
-        });
-
-
-
-        OK.setOnClickListener(new View.OnClickListener() {
+        Register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                postCredentials(usernameR, passwordR, emailR, bio, time, school, gendre);
+
                 startActivity(new Intent(Register.this, Navigation.class));
-                Log.i("asd123", "DDD");
             }
         });
-    }
-
-    //CHECKBOXES
-    public void onCheckboxClicked(View view) {
-        // Is the view now checked?
-        boolean checked = ((CheckBox) view).isChecked();
-
-        // Check which checkbox was clicked
-        switch(view.getId()) {
-            case R.id.checkbox_monday:
-                if (checked)
-                weekDays[0] = true;
-            else
-                // No Mondays
-                break;
-            case R.id.checkbox_tuesday:
-                if (checked)
-                    weekDays[1] = true;
-            else
-                // No Tuesdays
-                break;
-            case R.id.checkbox_wednesday:
-                if (checked)
-                    weekDays[2] = true;
-            else
-                // No Wednesdays
-                break;
-            case R.id.checkbox_thursday:
-                if (checked)
-                    weekDays[3] = true;
-            else
-                // No Thrusdays
-                break;
-            case R.id.checkbox_friday:
-                if (checked)
-                    weekDays[4] = true;
-            else
-                // No Fridays
-                break;
-            // TODO: Day of the week
-        }
     }
 
     public void onRadioButtonClicked(View view) {
@@ -163,6 +116,7 @@ public class Register extends AppCompatActivity {
                 if (checked)
                     pWhat = 3;
                     break;
+
             case R.id.radio_outdoors:
                 if (checked)
                     pWhere = 1;
@@ -175,8 +129,47 @@ public class Register extends AppCompatActivity {
                 if (checked)
                     pWhere = 3;
                     break;
-
         }
+    }
+
+
+
+    //función para llamar a la API
+    private void postCredentials(String usernameR, String passwordR, String emailR, String bio, Integer time, String school, String gendre) {
+
+        APICommunicator apiCommunicator = new APICommunicator();
+        Response.Listener responseListener = (Response.Listener<CustomRequest.CustomResponse>) response -> {
+            JSONObject jsonObject;
+            String mail = null;
+            String hora = null;
+            try {
+                jsonObject = new JSONObject();
+                mail = jsonObject.getString("mail");
+                hora = jsonObject.getString("time");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            startActivity(new Intent(Register.this, Navigation.class));
+            finish();
+        };
+
+        Response.ErrorListener errorListener = error -> {
+            Log.i("error","error");
+        };
+
+        Map<String, Object> params = new HashMap<>();
+        params.put("name", usernameR);
+        params.put("password", passwordR);
+        params.put("email", emailR);
+        params.put("bio", bio);
+        params.put("gender", gendre);
+        params.put("time", time);
+        params.put("pWhere", pWhere);
+        params.put("pWhat", pWhat);
+        params.put("school", school);
+
+        apiCommunicator.postRequest(getApplicationContext(), "/contact" , responseListener, errorListener, params);
     }
 
 }

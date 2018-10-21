@@ -16,11 +16,26 @@ exports.index = function (req, res) {
         });
     });
 };
+
+exports.login = function (req, res) {
+    var user = new User();
+    user.name = req.body.name ? req.body.name : user.name; 
+    user.password = req.body.password;
+    if (!user) {
+        throw new Error(`Username "${username}" not found`)
+    }
+    else {
+        res.json({
+            status: "success",
+            message: "Login successfully"
+        });
+    }
+}
+
 // Handle create contact actions
 exports.new = function (req, res) {
     var contact = new Contact();
     contact.name = req.body.name ? req.body.name : contact.name;
-    contact.completeName = req.body.completeName;
     contact.gender = req.body.gender;
     contact.email = req.body.email;
     contact.school = req.body.school; 

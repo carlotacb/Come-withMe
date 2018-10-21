@@ -14,6 +14,9 @@ router.route('/contact')
     .get(userController.index)
     .post(userController.new);
 
+router.route('/login')
+	.post(userController.login);
+
 router.route('/contact/:user_id')
     .get(userController.view)
     .patch(userController.update)
