@@ -39,29 +39,7 @@ exports.new = function (req, res) {
                 data: contact
             });
     });
-};
-/*exports.new = function (req, res) {
-    var contact = new Contact();
-    contact.name = req.body.name ? req.body.name : contact.name;
-    contact.completeName = req.body.completeName;
-    contact.gender = req.body.gender;
-    contact.email = req.body.email;
-    contact.school = req.body.school;    
-    contact.password = req.body.password;
-    contact.bio = req.body.bio;
-    contact.pWhat = req.body.pWhat;
-    contact.pWhere = req.body.pWhere;
-    contact.time = req.body.time;
-
-    // save the contact and check for errors
-    console.log("Hola Estic aqui!");
-    contact.save(function (err) {
-        res.json({
-                message: 'New contact created!',
-                data: contact
-            });
-    });
-};*/
+}
 
 // Handle view contact info
 exports.view = function (req, res) {
