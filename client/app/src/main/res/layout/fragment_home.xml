@@ -1,63 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
-=======
+
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomeFragment">
->>>>>>> 53994598389b98aa85cec3dd11a3801b22c9efc9
+
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="@string/hello_blank_fragment" />
-
-<<<<<<< HEAD
-        <Button
-            android:id="@+id/btnHome"
-            android:layout_width="wrap_content"
-            android:layout_height="36dp"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:fontFamily="sans-serif-medium"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:text="Home"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:visibility="visible" />
-
-        <Button
-            android:id="@+id/btnMyProfile"
-            android:layout_gravity="fill"
-            android:layout_width="wrap_content"
-            android:layout_height="36dp"
-            android:text="My Profile"
-            android:fontFamily="sans-serif-medium"
-            android:paddingLeft="16dp"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:paddingRight="16dp"
-            android:textStyle="bold"
-            android:textSize="14sp"
-            android:visibility="visible"/>
-
-        <Button
-            android:id="@+id/btnSettings"
-            android:layout_width="wrap_content"
-            android:layout_height="36dp"
-            android:text="Settings"
-            android:fontFamily="sans-serif-medium"
-            android:paddingLeft="16dp"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:paddingRight="16dp"
-            android:textStyle="bold"
-            android:textSize="14sp"
-            android:visibility="visible"/>
-    </LinearLayout>
-=======
+    
 </FrameLayout>
->>>>>>> 53994598389b98aa85cec3dd11a3801b22c9efc9
